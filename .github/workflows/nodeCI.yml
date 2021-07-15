@@ -30,6 +30,6 @@ jobs:
       - name: coverage
         uses: paambaati/codeclimate-action@v2.7.4
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{ secrets.SECRET_TEST_ID }}
         with:
           coverageCommand: make test-coverage
