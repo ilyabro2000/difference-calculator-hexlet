@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import program from 'commander';
-import diff from './src/index.js';
+import diff from '../index.js';
 
 program
   .description('Compares two configuration files and shows a difference.')
@@ -8,6 +8,6 @@ program
   .option('-f, --format [type]', 'output format')
   .arguments('<filepath1> <filepath2>')
   .action((filepath1, filepath2) => {
-    diff(filepath1, filepath2).map((item) => console.log(item));
+    console.log(diff(filepath1, filepath2));
   })
   .parse(process.argv);
