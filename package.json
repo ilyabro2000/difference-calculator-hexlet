@@ -1,0 +1,23 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/ilyabro2000/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/ilyabro2000/frontend-project-lvl2/actions)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyabro2000/frontend-project-lvl2.git"
+  },
+  "author": "Aliev Ilya, alieff.ilya@gmail.com",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ilyabro2000/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/ilyabro2000/frontend-project-lvl2#readme",
+  "dependencies": {
+    "commander": "^8.0.0"
+  }
+}
