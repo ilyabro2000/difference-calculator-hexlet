@@ -1,16 +1,18 @@
 import * as fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
+import parse from './src/parsers.js';
 
 const diff = (filepath1, filepath2) => {
   const getData = (filepath) => {
-    const fullPath = filepath.startsWith('/') ? filepath : path.resolve(filepath);
-    return fs.readFileSync(fullPath, 'utf8');
+    const fullPath = path.resolve(process.cwd(), filepath);
+    return fs.readFileSync(fullPath, 'utf-8');
   };
+  const getExtname = (filepath) => path.extname(filepath).slice(1);
   const file1 = getData(filepath1);
   const file2 = getData(filepath2);
-  const data1 = _.cloneDeep(JSON.parse(file1));
-  const data2 = _.cloneDeep(JSON.parse(file2));
+  const data1 = _.cloneDeep(parse(file1, getExtname(filepath1)));
+  const data2 = _.cloneDeep(parse(file2, getExtname(filepath2)));
   const keys = _.union(_.keys(data1), _.keys(data2)).sort();
   const result = {};
   const addMark = (mark, key) => `${mark} ${key}`;

@@ -19,7 +19,6 @@
   "bugs": {
     "url": "https://github.com/ilyabro2000/frontend-project-lvl2/issues"
   },
-
   "homepage": "https://github.com/ilyabro2000/frontend-project-lvl2#readme",
   "jest": {
     "testEnvironment": "node",
@@ -27,6 +26,7 @@
   },
   "dependencies": {
     "commander": "^8.0.0",
+    "js-yaml": "^3.14.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
