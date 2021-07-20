@@ -1,4 +1,5 @@
 import { test, expect } from '@jest/globals';
+import * as fs from 'fs';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 import diff from '../index.js';
@@ -17,31 +18,24 @@ const yaml2 = getFixturePath('file2.yaml');
 const yml1 = getFixturePath('file1.yml');
 const yml2 = getFixturePath('file2.yml');
 
-const result = {
-  '- follow': false,
-  '  host': 'hexlet.io',
-  '- proxy': '123.234.53.22',
-  '- timeout': 50,
-  '+ timeout': 20,
-  '+ verbose': true,
-};
+const stylish = fs.readFileSync(getFixturePath('stylish.txt'), 'utf-8');
 
 test('test1: absolute path', () => {
-  expect(diff(fullPath1, fullPath2)).toStrictEqual(result);
+  expect(diff(fullPath1, fullPath2)).toStrictEqual(stylish);
 });
 
 test('test2: relative path', () => {
-  expect(diff(relativePath1, relativePath2)).toStrictEqual(result);
+  expect(diff(relativePath1, relativePath2)).toStrictEqual(stylish);
 });
 
 test('test4: get diff yml format', () => {
-  expect(diff(yml1, yml2)).toStrictEqual(result);
+  expect(diff(yml1, yml2)).toStrictEqual(stylish);
 });
 
 test('test5: get diff yaml format', () => {
-  expect(diff(yaml1, yaml2)).toStrictEqual(result);
+  expect(diff(yaml1, yaml2)).toStrictEqual(stylish);
 });
 
 test('test5: get diff different format', () => {
-  expect(diff(yaml1, relativePath2)).toStrictEqual(result);
+  expect(diff(yaml1, relativePath2)).toStrictEqual(stylish);
 });
