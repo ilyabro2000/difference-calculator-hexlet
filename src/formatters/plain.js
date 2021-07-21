@@ -16,24 +16,22 @@ const render = (nodes) => {
       key, type, value, children, value1, value2,
     } = node;
 
-    let currentPath = '';
-    if (parentName === '') {
-      currentPath = key;
-    } else {
-      currentPath = `${parentName}.${key}`;
-    }
+    const currentPath = (child, parent = '') => {
+      if (parent === '') return child;
+      return `${parent}.${child}`;
+    };
 
     switch (type) {
       case 'nested':
-        return children.map((child) => iter(child, currentPath)).join('');
+        return children.map((child) => iter(child, currentPath(key, parentName))).join('');
       case 'unchanged':
         return '';
       case 'modifed':
-        return `Property '${currentPath}' was updated. From ${getValue(value1)} to ${getValue(value2)}\n`;
+        return `Property '${currentPath(key, parentName)}' was updated. From ${getValue(value1)} to ${getValue(value2)}\n`;
       case 'added':
-        return `Property '${currentPath}' was added with value: ${getValue(value)}\n`;
+        return `Property '${currentPath(key, parentName)}' was added with value: ${getValue(value)}\n`;
       case 'removed':
-        return `Property '${currentPath}' was removed\n`;
+        return `Property '${currentPath(key, parentName)}' was removed\n`;
       default:
         throw new Error(`unexpected type ${type}`);
     }
