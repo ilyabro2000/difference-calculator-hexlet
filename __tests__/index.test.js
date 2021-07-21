@@ -19,8 +19,9 @@ const yml1 = getFixturePath('file1.yml');
 const yml2 = getFixturePath('file2.yml');
 
 const stylish = fs.readFileSync(getFixturePath('stylish.txt'), 'utf-8');
+const plain = fs.readFileSync(getFixturePath('plain.txt'), 'utf-8');
 
-test('test1: absolute path', () => {
+test('test1: absolute path and default formatter', () => {
   expect(diff(fullPath1, fullPath2)).toStrictEqual(stylish);
 });
 
@@ -38,4 +39,12 @@ test('test5: get diff yaml format', () => {
 
 test('test5: get diff different format', () => {
   expect(diff(yaml1, relativePath2)).toStrictEqual(stylish);
+});
+
+test('test6: get diff with format plain', () => {
+  expect(diff(fullPath1, fullPath2, 'plain')).toStrictEqual(plain);
+});
+
+test('test7: get diff with format stylish', () => {
+  expect(diff(fullPath1, fullPath2, 'stylish')).toStrictEqual(stylish);
 });

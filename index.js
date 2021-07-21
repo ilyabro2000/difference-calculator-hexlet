@@ -3,7 +3,7 @@ import path from 'path';
 import _ from 'lodash';
 import parse from './src/parsers.js';
 import diffObject from './src/diffObject.js';
-import format from './src/formater.js';
+import format from './src/formatters/index.js';
 
 const diff = (filepath1, filepath2, outputFormat = 'stylish') => {
   const getData = (filepath) => {
