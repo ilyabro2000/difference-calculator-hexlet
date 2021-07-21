@@ -4,7 +4,7 @@
   "description": "[![Actions Status](https://github.com/ilyabro2000/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/ilyabro2000/frontend-project-lvl2/actions)",
   "main": "index.js",
   "bin": {
-    "genDiff": "bin/genDiff.js"
+    "gendiff": "bin/gendiff.js"
   },
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
