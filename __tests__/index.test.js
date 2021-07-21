@@ -20,6 +20,7 @@ const yml2 = getFixturePath('file2.yml');
 
 const stylish = fs.readFileSync(getFixturePath('stylish.txt'), 'utf-8');
 const plain = fs.readFileSync(getFixturePath('plain.txt'), 'utf-8');
+const json = fs.readFileSync(getFixturePath('json.json'), 'utf-8');
 
 test('test1: absolute path and default formatter', () => {
   expect(diff(fullPath1, fullPath2)).toStrictEqual(stylish);
@@ -47,4 +48,8 @@ test('test6: get diff with format plain', () => {
 
 test('test7: get diff with format stylish', () => {
   expect(diff(fullPath1, fullPath2, 'stylish')).toStrictEqual(stylish);
+});
+
+test('test8: get diff with format json', () => {
+  expect(diff(fullPath1, fullPath2, 'json')).toStrictEqual(json);
 });
